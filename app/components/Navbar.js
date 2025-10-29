@@ -6,7 +6,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="bg-gray-900 text-white px-6 py-4 flex justify-between items-center sticky top-0 z-50">
+    <nav className="bg-gray-900 text-white px-6 py-[30px] flex justify-between items-center sticky top-0 z-50">
       <h1 className="text-2xl font-bold">Hussain Abbas</h1>
       <div className="hidden md:flex gap-6">
         <Link href="/">Home</Link>

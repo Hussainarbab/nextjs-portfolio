@@ -4,12 +4,27 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <section className="flex flex-col items-center justify-center h-[80vh] text-center">
+    <section
+      className="relative flex flex-col items-center justify-center h-[90vh] text-center overflow-hidden"
+    >
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center z-[-1]"
+        style={{
+          backgroundImage:
+            "url('/images/bg.jpg')", // <-- replace with your actual image path
+        }}
+      ></div>
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/50 z-[-1]" />
+
+      {/* Content */}
       <motion.h1
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-5xl font-extrabold mb-3 text-gray-800"
+        className="text-6xl sm:text-7xl font-extrabold mb-4 text-white drop-shadow-lg"
       >
         Hussain Abbas
       </motion.h1>
@@ -18,7 +33,7 @@ export default function Home() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
-        className="text-xl text-gray-500 mb-6"
+        className="text-2xl sm:text-3xl text-blue-300 font-semibold mb-6"
       >
         Frontend Developer | React & Next.js Specialist
       </motion.h2>
@@ -27,10 +42,11 @@ export default function Home() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.7 }}
-        className="max-w-lg text-gray-600 mb-8"
+        className="max-w-2xl text-gray-200 text-lg sm:text-xl mb-8 leading-relaxed px-4"
       >
-        میں ایک جوشیلے فرنٹ اینڈ ڈیولپر ہوں جو جدید ٹیکنالوجیز جیسے React, 
-        Next.js, HTML, CSS، اور JavaScript کے ساتھ جدید ویب ایپس تیار کرتا ہے۔
+        I’m a passionate frontend developer who builds modern, responsive, and
+        user-friendly web applications using React, Next.js, HTML, CSS, and
+        JavaScript.
       </motion.p>
 
       <motion.div
@@ -40,11 +56,14 @@ export default function Home() {
       >
         <Link
           href="/projects"
-          className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+          className="px-8 py-3 bg-blue-600 text-white text-lg rounded-full font-medium hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-blue-500/30"
         >
           View My Work
         </Link>
       </motion.div>
+
+      {/* Decorative gradient at bottom */}
+      <div className="absolute bottom-0 w-full h-32 bg-gradient-to-t from-black/80 to-transparent" />
     </section>
   );
 }
